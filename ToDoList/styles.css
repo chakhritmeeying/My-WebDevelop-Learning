@@ -1,0 +1,10 @@
+.todo-item {
+    margin: 10px 0;
+}
+
+.remove-btn {
+    margin-left: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
