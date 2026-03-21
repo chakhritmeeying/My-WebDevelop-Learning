@@ -1,10 +1,55 @@
-.todo-item {
-    margin: 10px 0;
+body {
+    margin: 0xp;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.content {
+    background-color: rgba(194, 189, 189, 0.7);
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+button {
+    margin: 5px;
+    width: 80px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 70%);
+    color: white;
+    font-weight: bolder;
+
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 80%);
+}
+
+button:active {
+    background-color: rgba(0, 0, 0, 90%);
 }
 
 .remove-btn {
     margin-left: 10px;
+    width: 35px;
     border: none;
-    background: none;
-    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+}
+
+.remove-btn:hover {
+    background-color: rgba(46, 45, 45, 80%);
+}
+
+.remove-btn:active {
+    background-color: rgba(46, 45, 45, 90%);
+}
+
+.todo-item {
+    margin: 10px 0;
 }
