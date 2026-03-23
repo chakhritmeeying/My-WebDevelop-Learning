@@ -9,12 +9,13 @@
 </head>
 
 <body>
-    <div class="content" a>
+    <div class="content">
 
         <h1>To-Do List</h1>
         <p id="demo">Add something that you want to do.</p>
         <input type="text" placeholder="Enter To-Do list" id="todoInput" />
-        <button type="button" onclick="addList()">Add list</button>
+        <button type="button" onclick="addList()" class="button addbutton">Add list</button>
+        <button type="button" onclick="clearAll()" class="button clearbutton">Clear all</button>
         <div class="lists">
             <ul id="todoList"> </ul>
         </div>
@@ -22,7 +23,7 @@
     </div>
 
 
-    <script src="todoscript.js"></script>
+    <script src="todoScript.js"></script>
     <script>
         document.getElementById("todoInput").addEventListener("keydown", function (event) {
             if (event.key === "Enter") {

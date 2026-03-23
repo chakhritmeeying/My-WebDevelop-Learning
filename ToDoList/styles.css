@@ -4,11 +4,13 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: #c8b6ff;
+
 }
 
 .content {
 
-    background-color: rgba(255, 178, 115, 80%);
+    background-color: #ffd6ff;
     max-width: 400px;
     border-radius: 10px;
     padding-right: 15px;
@@ -20,49 +22,70 @@ body {
 input {
     border: none;
     border-radius: 5px;
+    padding: 10px 5px;
 }
 
 button {
     margin: 5px;
-    width: 80px;
-    height: 25px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #c8b6ff;
     color: white;
     font-weight: bolder;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
 
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
 }
 
 button:hover {
-    background-color: rgba(0, 0, 0, 80%);
+    background-color: #c8b6ffce;
 }
 
 button:active {
-    background-color: rgba(0, 0, 0, 90%);
+    background-color: #c8b6ffee;
+}
+
+.clearbutton {
+    background-color: #9D8189;
 }
 
 .remove-btn {
-    margin-left: 10px;
-    width: 35px;
+    margin-left: 5px;
     border: none;
-    background-color: rgb(255, 255, 255);
+    background-color: #e7c6ff;
 }
 
 .remove-btn:hover {
-    background-color: rgba(46, 45, 45, 80%);
+    background-color: #c8b6ffce;
 }
 
 .remove-btn:active {
-    background-color: rgba(46, 45, 45, 90%);
+    background-color: #c8b6ffee;
 }
 
 .todo-item {
     margin: 10px 0;
 }
 
-.lists {
-    background-color: rgb(255, 255, 255);
+ul {
+    background-color: #e7c6ff;
     border: none;
     border-radius: 10px;
+
+}
+
+span:hover {
+    background-color: #c8b6ffce;
+    color: white;
 }
