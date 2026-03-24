@@ -1,63 +1,76 @@
-function addList() {
-    let input = document.getElementById("todoInput");
-    let text = input.value;
+function loadTasks() {
+    let saveData = localStorage.getItem("myTodoList");
+    return saveData ? JSON.parse(saveData) : [];
+}
 
-    if (text.trim() === "") {
-        alert("Please enter a to-do item")
-        input.value = "";
+function saveData(dataToSave) {
+    localStorage.setItem("myTodoList", JSON.stringify(dataToSave))
+}
+
+
+function renderTodoList() {
+    let lsit = document.getElementById("todoList");
+    lsit.innerHTML = "";//refresh ul
+    let tasks = loadTasks();
+
+    tasks.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.classList.add("todo-item");
+
+        let span = document.createElement("span");
+        span.innerText = item.text;
+        span.style.textDecoration = item.completed ? "line-through" : "none";
+
+        span.onclick = function () {
+            let tasks = loadTasks();
+            tasks[index].completed = !tasks[index].completed;
+            saveData(tasks);
+            renderTodoList();
+        }
+
+        let removeBtn = document.createElement("button");
+        removeBtn.innerText = "X";
+        removeBtn.classList.add("button");
+        removeBtn.classList.add("remove-btn");
+        removeBtn.onclick = function () {
+            if (confirm("Are you sure you want to remove this task ?")) {
+                tasks.splice(index, 1);
+                saveData(tasks);
+                renderTodoList();
+            }
+        }
+        li.appendChild(span);
+        li.appendChild(removeBtn);
+        lsit.appendChild(li);
+    });
+}
+
+function addList() {
+    let currentTasks = loadTasks();//Load array. 
+    const input = document.getElementById("todoInput");
+
+    if (input.value.trim() === "") {
+        alert("Please enter a To-Do List");
         return;
     }
-    // Create li
-    let li = document.createElement("li");
-    // Create span for text
-    li.classList.add("todo-item");
-    let span = document.createElement("span");
-    span.innerText = text;
-    // Create button for remove item
-    let removeBtn = document.createElement("button");
-    removeBtn.innerText = "❌";
-    removeBtn.classList.add("button");
-    removeBtn.classList.add("remove-btn");
-    // Press for remove item
-    removeBtn.onclick = function () {
-        li.remove();
-    }
 
-    // Click item for line-through
-    span.onclick = function () {
-        if (span.style.textDecoration === "line-through") {
-            span.style.textDecoration = "none";
-        } else {
-            span.style.textDecoration = "line-through";
-        }
-    }
-
-    // Add span + removeBtn in to li
-    li.appendChild(span);
-
-    li.appendChild(removeBtn);
-    // Add li in to ul
-    document.getElementById("todoList").appendChild(li);
+    currentTasks.push({
+        text: input.value,
+        completed: false
+    });//add new task from input into array.
+    saveData(currentTasks);//save new tasks.
+    renderTodoList(); // render li into ul.
     input.value = "";
 
 }
 
-
 function clearAll() {
 
-    // document.getElementById("todoList").innerHTML = "";
-    let list = document.getElementById("todoList");
-    if (list.children.length === 0) {
-        alert("ToDo List is empty")
-        return
+    if (confirm("Are you sure you want to clearAll ?")) {
+        saveData([]); //Sent [] to clear array.
+        renderTodoList();// 
     }
-    else {
-        list.innerHTML = "";
-    }
-
 }
 
-
-
-
-
+// Load this function when page is loaded.
+renderTodoList();
