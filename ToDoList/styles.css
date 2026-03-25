@@ -40,6 +40,59 @@ button {
 
 }
 
+#todoList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    list-style: none;
+}
+
+.todo-item {
+    transition: all 0.3s ease;
+    background-color: white;
+    border-radius: 5px;
+    width: 150px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: transform 0.2s;
+    align-items: center;
+
+
+}
+
+
+.todo-item:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+    background-color: #bfc0c2;
+}
+
+.remove-btn.completed {
+    margin-left: 5px;
+    border: none;
+    background-color: #bfc0c2;
+}
+
+span {
+    margin-top: 20px;
+
+}
+
+span:hover {
+    background-color: #c8b6ffce;
+    color: white;
+}
+
 h1 {
     color: white;
 }
@@ -74,18 +127,10 @@ button:active {
     background-color: #c8b6ffee;
 }
 
-.todo-item {
-    margin: 10px 0;
-}
 
-ul {
+
+.lists {
     background-color: #e7c6ff;
     border: none;
     border-radius: 10px;
-
-}
-
-span:hover {
-    background-color: #c8b6ffce;
-    color: white;
 }

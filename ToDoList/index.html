@@ -16,6 +16,11 @@
         <input type="text" placeholder="Enter To-Do list" id="todoInput" />
         <button type="button" onclick="addList()" class="button addbutton">Add list</button>
         <button type="button" onclick="clearAll()" class="button clearbutton">Clear all</button>
+        <div class="filters">
+            <button onclick="filterTasks('all')" class="filter-btn active">ทั้งหมด</button>
+            <button onclick="filterTasks('pending')" class="filter-btn">กำลังทำ</button>
+            <button onclick="filterTasks('completed')" class="filter-btn">เสร็จแล้ว</button>
+        </div>
         <div class="lists">
             <ul id="todoList"> </ul>
         </div>
